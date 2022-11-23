@@ -1,0 +1,42 @@
+.pokoke-nengah {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nengah-pokoke {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 14rem;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.judul {
+    font-size: xx-large;
+}
+
+.container {
+    display: grid;
+    gap: 10px 10px;
+    grid-template-columns: auto auto auto auto;
+    padding:10px;
+  }
+
+.materi{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #9C9FA6;
+    height: 150px;
+    width: 300px;
+}
+.materi1{
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+
+}
