@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Kalkulator untuk SD, SMP, SMA</title>
+    <script>
+        function Luas(e) {
+            var a = document.getElementById("alas").value;
+            var t = document.getElementById("tinggi").value;
+            var luas = 1/2 * a * t;
+            document.getElementById("hasil").innerHTML = luas + " cm";
+            e.preventDefault()
+        }
+        function keliling(e) {
+            var a = document.getElementById("sisi").value;
+            var luas = 4 * a;
+            document.getElementById("hasil").innerHTML = luas + " cm";
+            e.preventDefault()
+        }
+        // window.onload = function () {
+
+        //     document.getElementById("form-rumus").addEventListener("submit", Luas(event))
+        // }
+    </script>
+</head>
+
+<body>
+
+    <div class="judul">
+        <h1>Kalkulator Matematika</h1>
+    </div>
+    <div class="sub-judul">
+        <h3>Rumus Luas dan Keliling Segitiga</h3>
+    </div>
+    <div class="isi">
+        <img src="segitiga.png" alt="" class="gambar">
+        <div>
+            <p>
+                <b>Segitiga</b>Segitiga merupakan
+              sebuah bangun datar yang dibatasi oleh tiga buah garis. Segitiga terbentuk dari tiga sisi yang berupa garis lurus dan memiliki tiga sudut.
+            </p>
+            <p><b>Rumus</b> Keliling dan Luas Segitiga</p>
+            <p>Keliling Segitia = sisi + sisi + sisi</p>
+            <p>Luas Segitiga = 1/2 * alas* tinggi</p>
+        </div>
+    </div>
+    <div class="rumus">
+        <h3>Perhitungan</h3>
+        <input type="text" id="sisi" name="fname" placeholder="masukkan panjang sisi disini (ex: 4)"> cm<br/>
+        <p>Atau Hitung Luas input berikut : </p>
+        <input type="text" id="alas" name="fname" placeholder="masukkan nilai Alas (ex: 4)"> cm<br/>
+        <input type="text" id="sisi" name="fname" placeholder="masukkan nilai Tinggi (ex: 4)"> cm<br/>
+      
+        <button onclick="Luas()">Hitung Luas</button>
+        <button onclick="keliling()">Hitung Keliling</button>
+        <p id="hasil"></p>
+    </div>
+</body>
+
+</html>
