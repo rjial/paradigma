@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,13 +11,25 @@
     <link rel="stylesheet" href="css/style.css">
     <title>Kalkulator untuk SD, SMP, SMA</title>
     <script>
-        function Luas() {
+        function Luas(e) {
             var a = document.getElementById("sisi").value;
-            var luas = a*a;
-            document.getElementById("hasil").innerHTML = luas;
+            var luas = a * a;
+            document.getElementById("hasil").innerHTML = luas + " cm";
+            e.preventDefault()
         }
+        function keliling(e) {
+            var a = document.getElementById("sisi").value;
+            var luas = 4 * a;
+            document.getElementById("hasil").innerHTML = luas + " cm";
+            e.preventDefault()
+        }
+        // window.onload = function () {
+
+        //     document.getElementById("form-rumus").addEventListener("submit", Luas(event))
+        // }
     </script>
 </head>
+
 <body>
 
     <div class="judul">
@@ -29,7 +42,8 @@
         <img src="persegi.png" alt="" class="gambar">
         <div>
             <p>
-                <b>Persegi</b> ialah salah satu jenis bangun datar dua dimensi yang di bentuk dari empat buah rusuk yang panjangnya sama  dan memiliki empat sudut yang semuanya merupakan sudut siku-siku.
+                <b>Persegi</b> ialah salah satu jenis bangun datar dua dimensi yang di bentuk dari empat buah rusuk yang
+                panjangnya sama dan memiliki empat sudut yang semuanya merupakan sudut siku-siku.
             </p>
             <p><b>Rumus</b> Keliling dan Luas Persegi</p>
             <p>Keliling Persegi = sisi x 4</p>
@@ -38,12 +52,11 @@
     </div>
     <div class="rumus">
         <h3>Perhitungan</h3>
-        <form>
-            <input type="text" id="sisi" name="fname" value="sisi">
-            <button onclick="Luas()">Hitung Luas</button>
-            <button>Hitung Keliling</button>
-        </form>
+        <input type="text" id="sisi" name="fname" placeholder="masukkan panjang sisi disini (ex: 4)"> cm<br/>
+        <button onclick="Luas()">Hitung Luas</button>
+        <button onclick="keliling()">Hitung Keliling</button>
         <p id="hasil"></p>
     </div>
 </body>
+
 </html>
