@@ -15,8 +15,11 @@
             var atas = document.getElementById("atas").value;
             var bawah = document.getElementById("bawah").value;
             var tinggi = document.getElementById("tinggi").value;
-            var luas = 0.5 * (atas + bawah) * tinggi;
-            document.getElementById("hasil").innerHTML = luas + " cm";
+            var luas = 1/2 * (atas + bawah) * tinggi;
+            var rumus = "luas = 1/2 x (alas a + alas b) x tinggi"
+            document.getElementById("rumus").innerHTML = rumus;
+            document.getElementById("hasil1").innerHTML = "luas = " + " 1/2 " + " x " + " ( " + atas + " + " + bawah + " ) " + " x " + tinggi ;
+            document.getElementById("hasil2").innerHTML = "luas = " + luas;
             e.preventDefault()
         }
         // window.onload = function () {
@@ -56,7 +59,9 @@
             tinggi : <input type="text" id="tinggi" name="fname" placeholder="masukkan panjang tinggi disini (ex: 4)"> cm
         </div>
         <button onclick="Luas()">Hitung Luas</button>
-        <p id="hasil"></p>
+        <p id="rumus"></p>
+        <p id="hasil1"></p>
+        <p id="hasil2"></p>
     </div>
 </body>
 

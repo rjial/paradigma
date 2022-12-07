@@ -15,13 +15,19 @@
             var a = document.getElementById("alas").value;
             var t = document.getElementById("tinggi").value;
             var luas = 1/2 * a * t;
-            document.getElementById("hasil").innerHTML = luas + " cm";
+            var rumus = "luas = 1/2 * alas * tinggi"
+            document.getElementById("rumus").innerHTML = rumus;
+            document.getElementById("hasil1").innerHTML = "luas = " + "1/2" + " * " + a + " * " + t ;
+            document.getElementById("hasil2").innerHTML = "luas = " + luas;
             e.preventDefault()
         }
         function keliling(e) {
             var a = document.getElementById("sisi").value;
-            var luas = 4 * a;
-            document.getElementById("hasil").innerHTML = luas + " cm";
+            var luas = a * 3;
+            var rumus = "keliling = sisi x sisi x sisi"
+            document.getElementById("rumus").innerHTML = rumus;
+            document.getElementById("hasil1").innerHTML = "keliling = " + a + "*" + 3  ;
+            document.getElementById("hasil2").innerHTML = "keliling = " + luas;
             e.preventDefault()
         }
         // window.onload = function () {
@@ -56,11 +62,13 @@
         <input type="text" id="sisi" name="fname" placeholder="masukkan panjang sisi disini (ex: 4)"> cm<br/>
         <p>Atau Hitung Luas input berikut : </p>
         <input type="text" id="alas" name="fname" placeholder="masukkan nilai Alas (ex: 4)"> cm<br/>
-        <input type="text" id="sisi" name="fname" placeholder="masukkan nilai Tinggi (ex: 4)"> cm<br/>
+        <input type="text" id="tinggi" name="fname" placeholder="masukkan nilai Tinggi (ex: 4)"> cm<br/>
       
         <button onclick="Luas()">Hitung Luas</button>
         <button onclick="keliling()">Hitung Keliling</button>
-        <p id="hasil"></p>
+        <p id="rumus"></p>
+        <p id="hasil1"></p>
+        <p id="hasil2"></p>
     </div>
 </body>
 

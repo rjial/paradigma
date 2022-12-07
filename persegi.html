@@ -22,8 +22,11 @@
         }
         function keliling(e) {
             var a = document.getElementById("sisi").value;
-            var luas = 4 * a;
-            document.getElementById("hasil").innerHTML = luas + " cm";
+            var keliling = 4 * a;
+            var b = "keliling = sisi x 4"
+            document.getElementById("rumus").innerHTML = b;
+            document.getElementById("hasil1").innerHTML = "keliling = " + a + " * " + "4";
+            document.getElementById("hasil2").innerHTML = "keliling = " + keliling;
             e.preventDefault()
         }
         // window.onload = function () {
