@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Kalkulator untuk SD, SMP, SMA</title>
+    <script>
+        function Luas(e) {
+            var atas = document.getElementById("atas").value;
+            var bawah = document.getElementById("bawah").value;
+            var tinggi = document.getElementById("tinggi").value;
+            var luas = 0.5 * (atas + bawah) * tinggi;
+            document.getElementById("hasil").innerHTML = luas + " cm";
+            e.preventDefault()
+        }
+        // window.onload = function () {
+
+        //     document.getElementById("form-rumus").addEventListener("submit", Luas(event))
+        // }
+    </script>
+</head>
+
+<body>
+
+    <div class="judul">
+        <h4>Kalkulator Matematika</h1>
+    </div>
+    <div class="sub-judul">
+        <h3>Rumus Luas dan Keliling Trapesium</h3>
+    </div>
+    <div class="isi">
+        <img src="trapesium.png" alt="" class="gambar">
+        <div>
+            <p>
+                <b>Trapesium</b> adalah bangun datar dua dimensi yang dibentuk oleh empat buah rusuk yang dua di antaranya saling sejajar namun tidak sama panjang.
+            </p>
+            <p><b>Rumus</b> Keliling dan Luas Persegi</p>
+            <p>Luas trapesium = ½ x (alas a + alas b) x tinggi trapesium</p>
+        </div>
+    </div>
+    <div class="rumus">
+        <h3>Perhitungan</h3>
+        <div>
+            sisi atas : <input type="text" id="atas" name="fname" placeholder="masukkan panjang sisi atas disini (ex: 4)"> cm
+        </div>
+        <div>
+            sisi bawah : <input type="text" id="bawah" name="fname" placeholder="masukkan panjang sisi bawah (ex: 4)"> cm
+        </div>
+        <div>
+            tinggi : <input type="text" id="tinggi" name="fname" placeholder="masukkan panjang tinggi disini (ex: 4)"> cm
+        </div>
+        <button onclick="Luas()">Hitung Luas</button>
+        <p id="hasil"></p>
+    </div>
+</body>
+
+</html>

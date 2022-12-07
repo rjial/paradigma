@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Kalkulator untuk SD, SMP, SMA</title>
+    <script>
+        function Luas(e) {
+            var alas = document.getElementById("alas").value;
+            var tinggi = document.getElementById("tinggi").value;
+            var luas = alas * tinggi;
+            document.getElementById("hasil").innerHTML = luas + " cm";
+            e.preventDefault()
+        }
+        function keliling(e) {
+            var alas = document.getElementById("alas").value;
+            var tinggi = document.getElementById("tinggi").value;
+            var luas = (alas * tinggi) * 2;
+            document.getElementById("hasil").innerHTML = luas + " cm";
+            e.preventDefault()
+        }
+        // window.onload = function () {
+
+        //     document.getElementById("form-rumus").addEventListener("submit", Luas(event))
+        // }
+    </script>
+</head>
+
+<body>
+
+    <div class="judul">
+        <h4>Kalkulator Matematika</h1>
+    </div>
+    <div class="sub-judul">
+        <h3>Rumus Luas dan Keliling Persegi Panjang</h3>
+    </div>
+    <div class="isi">
+        <img src="persegi_panjang.png" alt="" class="gambar">
+        <div>
+            <p>
+                <b>Persegi panjang</b> adalah bangun datar dua dimensi yang dibentuk oleh dua pasang sisi yang masing-masing sama panjang dan sejajar dengan pasangannya, dan memiliki empat buah sudut yang kesemuanya adalah sudut siku-siku.
+            </p>
+            <p><b>Rumus</b> Keliling dan Luas Persegi</p>
+            <p>Keliling Persegi = (alas + tinggi) x 2</p>
+            <p>Luas Persegi = alas x tinggi</p>
+        </div>
+    </div>
+    <div class="rumus">
+        <h3>Perhitungan</h3>
+        Alas : <input type="text" id="alas" name="fname" placeholder="masukkan panjang alas disini (ex: 4)"> cm<br/>
+        Tinggi : <input type="text" id="tinggi" name="fname" placeholder="masukkan panjang tinggi disini (ex: 4)"> cm<br/>
+        <button onclick="Luas()">Hitung Luas</button>
+        <button onclick="keliling()">Hitung Keliling</button>
+        <p id="hasil"></p>
+    </div>
+</body>
+
+</html>
