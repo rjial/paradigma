@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Kalkulator untuk SD, SMP, SMA</title>
+    <script>
+        function Luas(e) {
+            var a = document.getElementById("a").value;
+            var b = document.getElementById("b").value;
+            var t = document.getElementById("t").value;
+            var luas = a * t ;
+            var rumus = "luas = a × t"
+            document.getElementById("rumus").innerHTML = rumus;
+            document.getElementById("hasil1").innerHTML = "luas = " + a + " * " + t;
+            document.getElementById("hasil2").innerHTML = "luas = " + luas;
+            e.preventDefault()
+        }
+        function Keliling(e) {
+            var a = document.getElementById("a").value;
+            var b = document.getElementById("b").value;
+            var tinggi = document.getElementById("t").value;
+            var keliling = 2 * (a + b);
+            var rumus = "Keliling = 2 x ( a + b )"
+            document.getElementById("rumus").innerHTML = rumus;
+            document.getElementById("hasil1").innerHTML = "keliling = " + " 2 " + " x " + " ( " + a + " + " + b + " ) ";
+            document.getElementById("hasil2").innerHTML = "keliling = " + keliling;
+            e.preventDefault()
+        }
+        // window.onload = function () {
+
+        //     document.getElementById("form-rumus").addEventListener("submit", Luas(event))
+        // }
+    </script>
+</head>
+
+<body>
+
+    <div class="judul">
+        <h4>Kalkulator Matematika</h1>
+    </div>
+    <div class="sub-judul">
+        <h3>Rumus Luas dan Keliling jajargenjang</h3>
+    </div>
+    <div class="isi">
+        <img src="jajargenjang.png" alt="" class="gambar">
+        <div>
+            <p>
+                <b>jajargenjang</b> adalah bangun datar dua dimensi yang terdiri dari dua pasang sisi yang sama panjang dan sejajar. Namun Keempat sudutnya tidak siku-siku. Jadi pada intinya, bangun jajar genjang ini mirip dengan persegi panjang. Namun sudutnya tidak siku-siku.
+            </p>
+            <p><b>Rumus</b> Keliling dan Luas jajargenjang</p>
+            <p>Keliling = 2 (a + b)</p>
+            <p>Luas  =  a × t</p>
+        </div>
+    </div>
+    <div class="rumus">
+        <h3>Perhitungan</h3>
+        <div>
+            a : <input type="text" id="a" name="fname" placeholder="masukkan panjang sisi atas disini (ex: 4)"> cm
+        </div>
+        <div>
+            b : <input type="text" id="b" name="fname" placeholder="masukkan panjang sisi bawah (ex: 4)"> cm
+        </div>
+        <div>
+            t : <input type="text" id="t" name="fname" placeholder="masukkan panjang tinggi disini (ex: 4)"> cm
+        </div>
+        <button onclick="Luas()">Hitung Luas</button>
+        <button onclick="Keliling()">Hitung Keliling</button>
+        <p id="rumus"></p>
+        <p id="hasil1"></p>
+        <p id="hasil2"></p>
+    </div>
+</body>
+
+</html>
