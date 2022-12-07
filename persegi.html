@@ -14,7 +14,10 @@
         function Luas(e) {
             var a = document.getElementById("sisi").value;
             var luas = a * a;
-            document.getElementById("hasil").innerHTML = luas + " cm";
+            var b = "luas = sisi x sisi"
+            document.getElementById("rumus").innerHTML = b;
+            document.getElementById("hasil1").innerHTML = "luas = " + a + " * " + a ;
+            document.getElementById("hasil2").innerHTML = "luas = " + luas;
             e.preventDefault()
         }
         function keliling(e) {
@@ -55,7 +58,9 @@
         <input type="text" id="sisi" name="fname" placeholder="masukkan panjang sisi disini (ex: 4)"> cm<br/>
         <button onclick="Luas()">Hitung Luas</button>
         <button onclick="keliling()">Hitung Keliling</button>
-        <p id="hasil"></p>
+        <p id="rumus"></p>
+        <p id="hasil1"></p>
+        <p id="hasil2"></p>
     </div>
 </body>
 

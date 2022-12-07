@@ -81,3 +81,7 @@ display: grid;
     margin-left: 300px;
     margin-right: 300px;
 }
+
+.rumus button {
+    margin-top: 10px;
+}
