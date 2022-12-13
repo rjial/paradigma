@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Kalkulator Fisika Dasar</title>
+    <script>
+        function Massa(e) {
+            var g = document.getElementById("gravitasi").value;
+            var w = document.getElementById("berat").value;
+            var Massa= w/g ;
+            document.getElementById("hasil").innerHTML = Massa ;
+            e.preventDefault() 
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <div class="judul">
+        <h1>Kalkulator Matematika</h1>
+    </div>
+    <div class="sub-judul">
+        <h3>Rumus Kecepatan</h3>
+    </div>
+    <div class="isi">
+        <img src="Massa.png" alt="" class="gambar">
+        <div>
+            <p>
+                <b>Massa Benda</b> 
+                <p>Massa merupakan salah satu sifat fisika untuk mengukur banyaknya materi objek. Terkadang dalam kehidupan sehari-hari disinonimkan dengan berat. Padahal merupakan sesuatu hal yang berbeda. Massa benda merupakan sifat fisika untuk mengetahui ukuran banyaknya zat pada materi objek. Massa benda bersifat tetap dimanapun benda itu berada.</p>
+                <P>Adapun rumus Massa adalah m = w/g, dengan keterangan sebagai berikut.</P>
+                <p>g = Gravitasi</p>
+                <p>w = Berat Benda</p>
+                <p>m = Massa Benda</p>
+                
+
+            </p>
+            <p><b>Rumus</b> Massa Benda </p>
+            <p>Massa (M) = Berat benda (w) / gravitasii (g)</p>
+       
+        </div>
+    </div>
+    <div class="rumus">
+        <h3>Perhitungan</h3>
+        <p>Nilai Berat </p>
+        <input type="text" id="gravitasi" name="fname" placeholder="masukkan nilai Gravitasi (ex: 4)"> <br/>
+        <p>Nilai Gravitasi </p>
+        <input type="text" id="berat" name="fname" placeholder="masukkan nilai Berat (ex: 4)"> <br/>
+        <p></p>
+        <button onclick="Massa()"> Hitung Massa Benda</button>
+
+        <p > Jadi nilai Massa adalah : </p> <p id="hasil"></p>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Kalkulator Fisika Dasar</title>
+    <script>
+        function Volume(e) {
+            var s = document.getElementById("jarak").value;
+            var t = document.getElementById("waktu").value;
+            var Volume = s/t ;
+            document.getElementById("hasil").innerHTML = Volume + " m/s";
+            e.preventDefault() 
+        }
+
+        // window.onload = function () {
+
+        //     document.getElementById("form-rumus").addEventListener("submit", Luas(event))
+        // }
+    </script>
+</head>
+
+<body>
+
+    <div class="judul">
+        <h1>Kalkulator Matematika</h1>
+    </div>
+    <div class="sub-judul">
+        <h3>Rumus Kecepatan</h3>
+    </div>
+    <div class="isi">
+        <img src="Kecepatan.jpg" alt="" class="gambar">
+        <div>
+            <p>
+                <b>Kecepatan</b> 
+                <p>kecepatan adalah perbandingan antara perpindahan suatu benda terhadap waktu tempuhnya. Kecepatan termasuk besaran vektor dengan satuannya berupa km/jam, m/menit, m/detik, dan lainnya.</p>
+                <P>Adapun rumus kecepatan adalah v = S/t, dengan keterangan sebagai berikut.</P>
+                <p>V adalah kecepatan/kelajuan (m/s)</p>
+                <p>S adalah jarak/perpindahan (m)</p>
+                <p>t adalah waktu (s).</p>
+                
+
+            </p>
+            <p><b>Rumus</b> Kecepatan </p>
+            <p>Kecepatan (V) = Jarak (s) / Waktu(t)</p>
+       
+        </div>
+    </div>
+    <div class="rumus">
+        <h3>Perhitungan</h3>
+        <p>Nilai Jarak </p>
+        <input type="text" id="jarak" name="fname" placeholder="masukkan nilai Alas (ex: 4)"> meter(m)<br/>
+        <p>Nilai Waktu </p>
+        <input type="text" id="waktu" name="fname" placeholder="masukkan nilai Tinggi (ex: 4)"> detik(t)<br/>
+        <p></p>
+        <button onclick="Volume()"> Hitung Kecepatan</button>
+
+        <p > Jadi nilai kecepatan adalah </p> <p id="hasil"></p>
+    </div>
+</body>
+
+</html>

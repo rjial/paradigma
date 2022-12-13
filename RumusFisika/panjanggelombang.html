@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Kalkulator Fisika Dasar</title>
+    <script>
+        function Gelombang(e) {
+            var c = document.getElementById("kecepatan").value;
+            var f = document.getElementById("frekuensi").value;
+            var Gelombang = c/f ;
+            document.getElementById("hasil").innerHTML = Gelombang + " m";
+            e.preventDefault() 
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <div class="judul">
+        <h1>Kalkulator Fisika</h1>
+    </div>
+    <div class="sub-judul">
+        <h3>Rumus Energi Kinetik</h3>
+    </div>
+    <div class="isi">
+        <img src="gelombang.jpg" alt="" class="gambar">
+        <div>
+            <p>
+                <b>Panjang Gelombang</b> 
+                <p>Panjang gelombang atau periode spasial merupakan sebuah jarak selang satuan berulang dari sebuah pola gelombang. Kebalikan dari panjang gelombang adalah frekuensi spasial. Panjang gelombang disimbolkan dalam huruf Yunani, lambda.</P>
+                <p>lamda = Energi Kinetik (m)</p>
+                <p>c = kecepatan cahaya (m/s)</p>
+                <p>v = frekuensi (Hz)</p>
+
+            </p>
+            <p><b>Rumus</b> Panjang Gelombang </p>
+            <p>Lamda = c/f</p>
+       
+        </div>
+    </div>
+    <div class="rumus">
+        <h3>Perhitungan</h3>
+        <p>Nilai Gelombang </p>
+        <input type="text" id="kecepatan" name="fname" placeholder="masukkan nilai kecepatan (ex: 4)"><br/>
+        <p>Nilai Kecepatan </p>
+        <input type="text" id="frekuensi" name="fname" placeholder="masukkan nilai frekuensi(ex: 4)"><br/>
+        <p></p>
+        <button onclick="Gelombang()"> Hitung Panjang Gelombang : </button>
+
+        <p> Jadi nilai panjang Gelombang adalah </p> <p id="hasil"></p>
+    </div>
+</body>
+
+</html>

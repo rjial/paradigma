@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Kalkulator Fisika Dasar</title>
+    <script>
+        function Potensial(e) {
+            var g = document.getElementById("gravitasi").value;
+            var m = document.getElementById("berat").value;
+            var h = document.getElementById("ketinggian").value;
+            var Potensial = m*g*h ;
+            document.getElementById("hasil").innerHTML = Potensial + " Joule";
+            e.preventDefault() 
+        }
+
+        // window.onload = function () {
+
+        //     document.getElementById("form-rumus").addEventListener("submit", Luas(event))
+        // }
+    </script>
+</head>
+
+<body>
+
+    <div class="judul">
+        <h1>Kalkulator Fisika</h1>
+    </div>
+    <div class="sub-judul">
+        <h3>Rumus Energi Potensial</h3>
+    </div>
+    <div class="isi">
+        <img src="Ep.jpg" alt="" class="gambar">
+        <div>
+            <p>
+                <b>Energi Potensial</b> 
+                <p>Energi potensial adalah energi yang dimiliki oleh benda karena adanya pengaruh kedudukan dari benda tersebut. Jadi, semua benda bahkan yang diam pun memiliki energi potensial di dalamnya. Misalnya, buah di atas pohon itu tidak bergerak, tapi terdapat energi potensial di dalamnya.</P>
+                <p>Ep: energi potensial (Joule)</p>
+                <p>m : massa benda (kg)</p>
+                <p>g : gravitasi bumi (m/s2)</p>
+                <p>h : ketinggian suatu benda (m)</p> 
+
+            </p>
+            <p><b>Rumus</b> Energi Potensial </p>
+            <p>Ep (Joule) = m*g*h</p>
+       
+        </div>
+    </div>
+    <div class="rumus">
+        <h3>Perhitungan</h3>
+        <p>Nilai Massa </p>
+        <input type="text" id="berat" name="fname" placeholder="masukkan nilai berat (ex: 4)"><br/>
+        <p>Nilai Gravitasi </p>
+        <input type="text" id="gravitasi" name="fname" placeholder="masukkan nilai gravitasi (ex: 4)"><br/>
+        <p>Nilai ketinggian </p>
+        <input type="text" id="ketinggian" name="fname" placeholder="masukkan nilai tinggi (ex: 4)"> <br/>
+        <p></p>
+        <button onclick="Potensial()"> Hitung Energi Potensial : </button>
+
+        <p> Jadi nilai Ep adalah </p> <p id="hasil"></p>
+    </div>
+</body>
+
+</html>

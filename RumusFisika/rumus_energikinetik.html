@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Kalkulator Fisika Dasar</title>
+    <script>
+        function Kinetik(e) {
+            var v = document.getElementById("kecepatan").value;
+            var m = document.getElementById("berat").value;
+            var Kinetik = m*v*v/2 ;
+            document.getElementById("hasil").innerHTML = Kinetik + " Joule";
+            e.preventDefault() 
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <div class="judul">
+        <h1>Kalkulator Fisika</h1>
+    </div>
+    <div class="sub-judul">
+        <h3>Rumus Energi Kinetik</h3>
+    </div>
+    <div class="isi">
+        <img src="energi-kinetik.png" alt="" class="gambar">
+        <div>
+            <p>
+                <b>Energi Kinetik</b> 
+                <p>Energi kinetik adalah energi yang dimiliki benda saat benda bergerak. Energi kinetik dapat dihasilkan karena getaran, rotasi, atau translasi (pergerakan dari satu tempat ke tempat lainnya).Energi kinetik benda apa pun dapat dengan mudah dicari dengan persamaan yang menggunakan massa dan kecepatan benda itu.</P>
+                <p>Ek = Energi Kinetik (joule)</p>
+                <p>m = Massa Benda (Kg)</p>
+                <p>v = kecepatan benda (m/s)</p>
+
+            </p>
+            <p><b>Rumus</b> Energi Kinetik </p>
+            <p>Ek (Joule) = 1/2 mv^2 </p>
+       
+        </div>
+    </div>
+    <div class="rumus">
+        <h3>Perhitungan</h3>
+        <p>Nilai Massa </p>
+        <input type="text" id="berat" name="fname" placeholder="masukkan nilai berat (ex: 4)"><br/>
+        <p>Nilai Kecepatan </p>
+        <input type="text" id="kecepatan" name="fname" placeholder="masukkan nilai kecepatan(ex: 4)"><br/>
+        <p></p>
+        <button onclick="Kinetik()"> Hitung Energi Kinetik : </button>
+
+        <p> Jadi nilai Ek adalah </p> <p id="hasil"></p>
+    </div>
+</body>
+
+</html>
