@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Kalkulator untuk SD, SMP, SMA</title>
+    <script>
+        function volume(e) {
+            var jari2 = document.getElementById("jari2").value;
+            var tinggi = document.getElementById("tinggi").value;
+            var pi = 3.14;
+            var luas = pi * jari2 * jari2 * tinggi;
+            var b = "luas = pi x jari x jari"
+            document.getElementById("rumus").innerHTML = b;
+            document.getElementById("hasil1").innerHTML = "luas = " + pi + " * " + jari2 + " * " + jari2 + "*" + tinggi;
+            document.getElementById("hasil2").innerHTML = "luas = " + luas;
+            e.preventDefault()
+        }
+        function luas(e) {
+            var r = document.getElementById("jari2").value;
+            var t = document.getElementById("tinggi").value;
+            var pi = 3.14;
+            var luas = ((pi * r * r) * 2) + ((pi * r) * t);
+            var b = "luas = ((pi * r * r) * 2) + ((pi * r) * t)"
+            document.getElementById("rumus").innerHTML = b;
+            document.getElementById("hasil1").innerHTML = "luas permukaan = ((" + pi + "*" + r + "*" + r + ") * 2) + ((" + pi + "*" + r + ") *" + t+")";
+            document.getElementById("hasil2").innerHTML = "luas permukaan = " + luas;
+            e.preventDefault()
+        }
+        // window.onload = function () {
+
+        //     document.getElementById("form-rumus").addEventListener("submit", Luas(event))
+        // }
+    </script>
+</head>
+
+<body>
+
+    <div class="judul">
+        <h4>Kalkulator Matematika</h1>
+    </div>
+    <div class="sub-judul">
+        <h3>Rumus Luas dan Keliling Tabung</h3>
+    </div>
+    <div class="isi">
+        <img src="lingkaran.JPG" alt="" class="gambar">
+        <div>
+            <p>
+                <b>Tabung</b> adalah bentuk tiga dimensi yang dibentuk oleh dua lingkaran paralel identik dan persegi panjang yang mengelilingi dua lingkaran.</p>
+            <p><b>Rumus</b> Keliling dan Luas Tabung</p>
+            <p>Luas Permukaan tabung = ((pi x r x r) x 2) + (pi x r) x t)</p>
+            <p>Volume tabung = pi x r x r x t</p>
+        </div>
+    </div>
+    <div class="rumus">
+        <h3>Perhitungan</h3>
+        <input type="text" id="jari2" name="fname" placeholder="jari - jari lingkaran"> cm<br/>
+        <input type="text" id="tinggi" name="fname" placeholder="tinggi"> cm<br/>
+        <button onclick="volume()">Hitung volume</button>
+        <button onclick="luas()">Hitung luas Permukaan</button>
+        <p id="rumus"></p>
+        <p id="hasil1"></p>
+        <p id="hasil2"></p>
+    </div>
+</body>
+
+</html>
