@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Kalkulator untuk SD, SMP, SMA</title>
+    <script>
+        function Luas(e) {
+            var jari2 = document.getElementById("jari2").value;
+            var pi = 3.14;
+            var luas = pi * jari2 * jari2;
+            var b = "luas = pi x jari x jari"
+            document.getElementById("rumus").innerHTML = b;
+            document.getElementById("hasil1").innerHTML = "luas = " + pi + " * " + jari2 + " * " + jari2 ;
+            document.getElementById("hasil2").innerHTML = "luas = " + luas;
+            e.preventDefault()
+        }
+        function keliling(e) {
+            var jari2 = document.getElementById("jari2").value;
+            var pi = 3.14;
+            var luas = pi * jari2;
+            var b = "keliling = pi x r"
+            document.getElementById("rumus").innerHTML = b;
+            document.getElementById("hasil1").innerHTML = "keliling = " + pi + " * " + jari2;
+            document.getElementById("hasil2").innerHTML = "keliling = " + luas;
+            e.preventDefault()
+        }
+        // window.onload = function () {
+
+        //     document.getElementById("form-rumus").addEventListener("submit", Luas(event))
+        // }
+    </script>
+</head>
+
+<body>
+
+    <div class="judul">
+        <h4>Kalkulator Matematika</h1>
+    </div>
+    <div class="sub-judul">
+        <h3>Rumus Luas dan Keliling Persegi</h3>
+    </div>
+    <div class="isi">
+        <img src="lingkaran.JPG" alt="" class="gambar">
+        <div>
+            <p>
+                <b>Lingkaran</b> dalam matematika merupakan sebuah bangun datar dua dimensi. Lingkaran juga merupakan sekumpulan dari titik – titik yang membentuk suatu lengkungan yang memiliki panjang yang sama pada titik pusat lingkaran.
+            </p>
+            <p><b>Rumus</b> Keliling dan Luas Lingkaran</p>
+            <p>Keliling Lingkaran = pi x r</p>
+            <p>Luas Lingkaran = pi x r x r</p>
+        </div>
+    </div>
+    <div class="rumus">
+        <h3>Perhitungan</h3>
+        <input type="text" id="jari2" name="fname" placeholder="jari - jari lingkaran"> cm<br/>
+        <button onclick="Luas()">Hitung Luas</button>
+        <button onclick="keliling()">Hitung Keliling</button>
+        <p id="rumus"></p>
+        <p id="hasil1"></p>
+        <p id="hasil2"></p>
+    </div>
+</body>
+
+</html>
