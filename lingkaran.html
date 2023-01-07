@@ -12,23 +12,22 @@
     <title>Kalkulator untuk SD, SMP, SMA</title>
     <script>
         function Luas(e) {
-            var jari2 = document.getElementById("jari2").value;
-            var pi = 3.14;
-            var luas = pi * jari2 * jari2;
-            var b = "luas = pi x jari x jari"
-            document.getElementById("rumus").innerHTML = b;
-            document.getElementById("hasil1").innerHTML = "luas = " + pi + " * " + jari2 + " * " + jari2 ;
+
+            var jari = document.getElementById("jari").value;
+            let phi = (jari % 7 == 0) ? 22/7 : 3.14
+            var luas = (jari * jari) * phi;
+            document.getElementById("hasil").innerHTML = luas + " cm";
+            var rumus = "luas = phi x r²"
+            document.getElementById("rumus").innerHTML = rumus;
+            document.getElementById("hasil1").innerHTML = "luas = phi *" + jari + "²";
             document.getElementById("hasil2").innerHTML = "luas = " + luas;
             e.preventDefault()
         }
         function keliling(e) {
-            var jari2 = document.getElementById("jari2").value;
-            var pi = 3.14;
-            var luas = pi * jari2;
-            var b = "keliling = pi x r"
-            document.getElementById("rumus").innerHTML = b;
-            document.getElementById("hasil1").innerHTML = "keliling = " + pi + " * " + jari2;
-            document.getElementById("hasil2").innerHTML = "keliling = " + luas;
+            var jari = document.getElementById("jari").value;
+            let phi = (jari % 7 == 0) ? 22/7 : 3.14
+            var luas = 2 * jari * phi;
+            document.getElementById("hasil").innerHTML = luas + " cm";
             e.preventDefault()
         }
         // window.onload = function () {
@@ -44,25 +43,26 @@
         <h4>Kalkulator Matematika</h1>
     </div>
     <div class="sub-judul">
-        <h3>Rumus Luas dan Keliling Persegi</h3>
+        <h3>Rumus Luas dan Keliling Lingkaran</h3>
     </div>
     <div class="isi">
-        <img src="lingkaran.JPG" alt="" class="gambar">
+        <img src="lingkaran.jpg" alt="" class="gambar">
         <div>
             <p>
-                <b>Lingkaran</b> dalam matematika merupakan sebuah bangun datar dua dimensi. Lingkaran juga merupakan sekumpulan dari titik – titik yang membentuk suatu lengkungan yang memiliki panjang yang sama pada titik pusat lingkaran.
+                <b>Lingkaran</b> adalah bentuk yang terdiri dari semua titik dalam bidang yang berjarak tertentu dari titik tertentu, pusat; ekuivalennya adalah kurva yang dilacak oleh titik yang bergerak dalam bidang sehingga jaraknya dari titik tertentu adalah konstan.
             </p>
             <p><b>Rumus</b> Keliling dan Luas Lingkaran</p>
-            <p>Keliling Lingkaran = pi x r</p>
-            <p>Luas Lingkaran = pi x r x r</p>
+            <p>Keliling Lingkaran = phi * r * r</p>
+            <p>Luas Lingkaran = 2 * phi * r</p>
+            <p>phi = 3.14</p>
         </div>
     </div>
     <div class="rumus">
         <h3>Perhitungan</h3>
-        <input type="text" id="jari2" name="fname" placeholder="jari - jari lingkaran"> cm<br/>
+        Jari-jari : <input type="text" id="jari" name="fname" placeholder="masukkan panjang jari-jari disini (ex: 4)"> cm<br/>
         <button onclick="Luas()">Hitung Luas</button>
         <button onclick="keliling()">Hitung Keliling</button>
-        <p id="rumus"></p>
+        <p id="hasil"></p>
         <p id="hasil1"></p>
         <p id="hasil2"></p>
     </div>
