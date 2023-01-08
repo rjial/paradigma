@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Kalkulator untuk SD, SMP, SMA</title>
+    <script>
+        function initTable() {
+            let tableInfo = document.createElement("table")
+            let tbodyInfo = document.createElement("tbody")
+            let trNetwork = document.createElement("tr")
+            let tdNetwork = document.createElement("td")
+            tdNetwork.innerText = "Network IP"
+            trNetwork.appendChild(tdNetwork)
+            let trFirstIP = document.createElement("tr")
+            let tdFirstIP = document.createElement("td")
+            tdFirstIP.innerText = "First Host IP"
+            trFirstIP.appendChild(tdFirstIP)
+            let trLastIP = document.createElement("tr")
+            let tdLastIP = document.createElement("td")
+            tdLastIP.innerText = "Last Host IP"
+            trLastIP.appendChild(tdLastIP)
+            let trBroadcast = document.createElement("tr")
+            let tdBroadcast = document.createElement("td")
+            tdBroadcast.innerText = "Broadcast IP"
+            trBroadcast.appendChild(tdBroadcast)
+            tbodyInfo.appendChild(trNetwork)
+            tbodyInfo.appendChild(trFirstIP)
+            tbodyInfo.appendChild(trLastIP)
+            tbodyInfo.appendChild(trBroadcast)
+            tableInfo.appendChild(tbodyInfo)
+            document.getElementById("result").appendChild(tableInfo)
+        }
+        function resetTable() {
+            document.getElementById("result").innerHTML = ""
+        }
+        function createTable(network, first, last, broadcast, parent) {
+            let tableInfo = document.createElement("table")
+            let tbodyInfo = document.createElement("tbody")
+            let trNetwork = document.createElement("tr")
+            let tdNetwork = document.createElement("td")
+            tdNetwork.innerText = network
+            trNetwork.appendChild(tdNetwork)
+            let trFirstIP = document.createElement("tr")
+            let tdFirstIP = document.createElement("td")
+            tdFirstIP.innerText = first
+            trFirstIP.appendChild(tdFirstIP)
+            let trLastIP = document.createElement("tr")
+            let tdLastIP = document.createElement("td")
+            tdLastIP.innerText = last
+            trLastIP.appendChild(tdLastIP)
+            let trBroadcast = document.createElement("tr")
+            let tdBroadcast = document.createElement("td")
+            tdBroadcast.innerText = broadcast
+            trBroadcast.appendChild(tdBroadcast)
+            tbodyInfo.appendChild(trNetwork)
+            tbodyInfo.appendChild(trFirstIP)
+            tbodyInfo.appendChild(trLastIP)
+            tbodyInfo.appendChild(trBroadcast)
+            tableInfo.appendChild(tbodyInfo)
+            parent.appendChild(tableInfo)
+        }
+        function calculate(e) {
+            e.preventDefault()
+            const { Validator, IPv4CidrRange } = ipnum
+            var ipaddress = document.getElementById("ipaddress").value;
+            if (Validator.isValidIPv4CidrNotation(ipaddress)[0]) {
+                resetTable()
+                let range = IPv4CidrRange.fromCidr(ipaddress)
+                // window.range = range
+                // while(range.hasNextRange()) {
+                //     const result = range.nextRange()
+                //     if (range.hasNextRange() == false) break;
+                //     console.log(range.nextRange())
+                // }
+                if (range.getSize() % 2n == 0) {
+                    range.split().forEach(rangedata => {
+                        // console.log(rangedata.getLast().toString())
+                        // window.range = rangedata
+                        let parent = document.getElementById("result")
+                        createTable("Network IP", "First Host IP", "Last Host IP", "Broadcast", parent)
+                        createTable(rangedata.getFirst().toString(), rangedata.getFirst().nextIPNumber().toString(), rangedata.getLast().previousIPNumber().toString(), rangedata.getLast().toString(), parent)
+                    })
+                // } else {
+                //     let rangedata = range
+                //     window.range = rangedata
+                //     let parent = document.getElementById("result")
+                //     createTable("Network IP", "First Host IP", "Last Host IP", "Broadcast", parent)
+                //     createTable(rangedata.toString(), rangedata.nextIPNumber().toString(), rangedata.previousIPNumber().previousIPNumber().toString(), rangedata.previousIPNumber(), parent)
+                }
+                // IPv4CidrRange.fromCidr(ipaddress).forEach(range => {
+
+                // let tableInfo = document.createElement("table")
+                // let tbodyInfo = document.createElement("tbody")
+                // let trNetwork = document.createElement("tr")
+                // let tdNetwork = document.createElement("td")
+                // tdNetwork.innerText = range.getFirst().toString()
+                // trNetwork.appendChild(tdNetwork)
+                // let trFirstIP = document.createElement("tr")
+                // let tdFirstIP = document.createElement("td")
+                // tdFirstIP.innerText = range.getFirst().nextIPNumber().toString()
+                // trFirstIP.appendChild(tdFirstIP)
+                // let trLastIP = document.createElement("tr")
+                // let tdLastIP = document.createElement("td")
+                // tdLastIP.innerText = range.getLast().previousIPNumber().toString()
+                // trLastIP.appendChild(tdLastIP)
+                // let trBroadcast = document.createElement("tr")
+                // let tdBroadcast = document.createElement("td")
+                // tdBroadcast.innerText = range.getLast()
+                // trBroadcast.appendChild(tdBroadcast)
+                // tbodyInfo.appendChild(trNetwork)
+                // tbodyInfo.appendChild(trFirstIP)
+                // tbodyInfo.appendChild(trLastIP)
+                // tbodyInfo.appendChild(trBroadcast)
+                // tableInfo.appendChild(tbodyInfo)
+                // document.getElementById("result").appendChild(tableInfo)
+                // });
+                // document.getElementById("hasil").innerHTML = cidr
+            } else {
+                document.getElementById("hasil").innerHTML = Validator.isValidIPv4CidrNotation(ipaddress)[1]
+            }
+        }
+    </script>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid;
+        }
+
+        #result {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="judul">
+        <h4>Kalkulator Programmer</h1>
+    </div>
+    <div class="sub-judul">
+        <h3>IP Address Calculator</h3>
+    </div>
+    <div class="isi">
+        <div>
+            <p>
+                Internet Protocol address (atau disingkat alamat IP) adalah label numerik yang ditetapkan untuk setiap
+                perangkat yang terhubung ke jaringan komputer yang menggunakan Protokol Internet untuk komunikasi.
+                Alamat IP memiliki dua fungsi utama: host atau identifikasi antarmuka jaringan dan pengalamatan lokasi.
+            </p>
+        </div>
+    </div>
+    <div class="rumus">
+        <h3>Perhitungan</h3>
+        <form onsubmit="calculate(event)">
+            <input type="text" id="ipaddress" name="fname" placeholder="masukkan alamat ip host disini (ex: 192.168.1)">
+            cm<br />
+            <button submit>Calculate</button>
+        </form>
+        <div id="result">
+
+        </div>
+        <p id="hasil"></p>
+        <p id="hasil1"></p>
+        <p id="hasil2"></p>
+    </div>
+</body>
+<script src="./ip-num.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/ctr-ipaddr@0.0.7/lib/index.min.js"></script>
+
+</html>

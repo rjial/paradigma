@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Kalkulator untuk SD, SMP, SMA</title>
+    <script>
+        function initTable(array) {
+            let tableInfo = document.createElement("table")
+            let tbodyInfo = document.createElement("tbody")
+            array.map(function (data) {
+                let tr = document.createElement("tr")
+                let tdName = document.createElement("td")
+                let tdValue = document.createElement("td")
+                tdName.innerText = data.name
+                tdValue.innerText = data.value
+                tr.appendChild(tdName)
+                tr.appendChild(tdValue)
+                tbodyInfo.appendChild(tr)
+            })
+            tableInfo.appendChild(tbodyInfo)
+            tableInfo.width = "50%"
+            document.getElementById("result").appendChild(tableInfo)
+        }
+        function resetTable() {
+            document.getElementById("result").innerHTML = ""
+        }
+        function calculate(e) {
+            e.preventDefault()
+            let value =  document.getElementById("value").value
+            resetTable()
+            let base = document.getElementById("base").value
+            let body = [
+                {
+                    name: "Binary",
+                    value: parseInt(value, base).toString(2)
+                },
+                {
+                    name: "Oktal",
+                    value: parseInt(value, base).toString(8)
+                },
+                {
+                    name: "Hexadesimal",
+                    value: parseInt(value, base).toString(16).toUpperCase()
+                },
+                {
+                    name: "Desimal",
+                    value: parseInt(value, base).toString(10).toUpperCase()
+                }
+            ]
+            initTable(body)
+        }
+    </script>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid;
+        }
+
+        #result {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="judul">
+        <h4>Kalkulator Programmer</h1>
+    </div>
+    <div class="sub-judul">
+        <h3>Biner, Oktal, Desimal,  Calculator</h3>
+    </div>
+    <div class="isi">
+        <div>
+            <p>
+                Di dalam dunia komputer, terdapat empat format bilangan, yaitu bilangan biner, oktal, desimal dan heksadesimal.
+                <ol>
+                    <li>Bilangan biner atau binary digit (bit) adalah bilangan yang terdiri dari <b>1 dan 0.</b></li>
+                    <li>Bilangan oktal terdiri dari <b>0,1,2,3,4,5,6 dan 7.</b> </li>
+                    <li>bilangan desimal terdiri dari <b>0, 1, 2, 3, 4, 5, 6, 7, 8 dan 9.</b></li>
+                    <li>bilangan heksadesimal terdiri dari <b>0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E dan F.</b></li>
+                </ol>
+            </p>
+        </div>
+    </div>
+    <div class="rumus">
+        <h3>Perhitungan</h3>
+        <form onsubmit="calculate(event)">
+            <select name="base" id="base">
+                <option value="10">Desimal</option>
+                <option value="2">Biner</option>
+                <option value="16">Hexadesimal</option>
+                <option value="8">Oktal</option>
+            </select>
+            <input type="text" id="value" name="fname" placeholder="masukkan alamat ip host disini (ex: 192.168.1)"><br/>
+            <button submit>Calculate</button>
+        </form>
+        <div id="result">
+
+        </div>
+        <p id="hasil"></p>
+        <p id="hasil1"></p>
+        <p id="hasil2"></p>
+    </div>
+</body>
+<script src="./ip-num.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/ctr-ipaddr@0.0.7/lib/index.min.js"></script>
+
+</html>

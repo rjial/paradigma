@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Kalkulator untuk SD, SMP, SMA</title>
+    <script>
+        var firstNum = 0
+        var secondNum = 0
+        var thirdNum = 0
+        var firstSection = "---"
+        var secondSection = "---"
+        var thirdSection = "---"
+        function initTable(array) {
+            let tableInfo = document.createElement("table")
+            let tbodyInfo = document.createElement("tbody")
+            array.map(function (data) {
+                let tr = document.createElement("tr")
+                let tdName = document.createElement("td")
+                let tdValue = document.createElement("td")
+                tdName.innerText = data.name
+                tdValue.innerText = data.value
+                tr.appendChild(tdName)
+                tr.appendChild(tdValue)
+                tbodyInfo.appendChild(tr)
+            })
+            tableInfo.appendChild(tbodyInfo)
+            tableInfo.width = "50%"
+            document.getElementById("result").appendChild(tableInfo)
+        }
+        function resetTable() {
+            document.getElementById("result").innerHTML = ""
+        }
+        function calcPerm(cbElement) {
+            let checked = cbElement.checked
+            let cbName = cbElement.name.split('')
+            switch (cbName[0]) {
+                case ("u"):
+                    checked ? firstNum += parseInt(cbName[1]) : firstNum -= parseInt(cbName[1])
+                    console.log("u", parseInt(cbName[1]), checked)
+                    break;
+                case ("g"):
+                    checked ? secondNum += parseInt(cbName[1]) : secondNum -= parseInt(cbName[1])
+                    console.log("g", parseInt(cbName[1]), checked)
+                    break;
+                case ("o"):
+                    checked ? thirdNum += parseInt(cbName[1]) : thirdNum -= parseInt(cbName[1])
+                    console.log("o", parseInt(cbName[1]), checked)
+                    break;
+
+            }
+        }
+        function calculate(e) {
+            // e.preventDefault()
+            resetTable()
+            calcPerm(e.srcElement)
+            
+            // console.log(e.srcElement.name.split(''))
+            // console.log(e.srcElement.checked)
+            
+            let value = firstNum.toString()+secondNum.toString()+thirdNum.toString()
+            // let base = document.getElementById("base").value
+            let body = [
+                {
+                    name: "Octal Value",
+                    value: value
+                },
+            ]
+            initTable(body)
+        }
+
+        window.onload = function () {
+            let checks = document.querySelectorAll("#permission tbody input[type='checkbox']")
+            for (const check of checks) {
+                resetTable()
+                check.addEventListener('click', calculate)
+                check.checked = true
+                calcPerm(check)
+                let value = firstNum.toString()+secondNum.toString()+thirdNum.toString()
+                let body = [
+                {
+                    name: "Octal Value",
+                    value: value
+                },
+            ]
+            initTable(body)
+                console.log(check.name.split(''))
+            }
+        }
+    </script>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid;
+        }
+
+        #result {
+            margin-top: 10px;
+        }
+
+        #permission {
+            width: 75%;
+        }
+
+        #permission tbody tr td {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="judul">
+        <h4>Kalkulator Programmer</h1>
+    </div>
+    <div class="sub-judul">
+        <h3>Biner, Oktal, Desimal, Calculator</h3>
+    </div>
+    <div class="isi">
+        <div>
+            <p>
+                Di dalam dunia komputer, terdapat empat format bilangan, yaitu bilangan biner, oktal, desimal dan
+                heksadesimal.
+            <ol>
+                <li>Bilangan biner atau binary digit (bit) adalah bilangan yang terdiri dari <b>1 dan 0.</b></li>
+                <li>Bilangan oktal terdiri dari <b>0,1,2,3,4,5,6 dan 7.</b> </li>
+                <li>bilangan desimal terdiri dari <b>0, 1, 2, 3, 4, 5, 6, 7, 8 dan 9.</b></li>
+                <li>bilangan heksadesimal terdiri dari <b>0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E dan F.</b></li>
+            </ol>
+            </p>
+        </div>
+    </div>
+    <div class="rumus">
+        <h3>Perhitungan</h3>
+        <table id="permission">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>User Owner (u)</th>
+                    <th>Group (g)</th>
+                    <th>Others (o)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Read (4)</th>
+                    <td><input type="checkbox" name="u4" id="u4"></td>
+                    <td><input type="checkbox" name="g4" id="g4"></td>
+                    <td><input type="checkbox" name="o4" id="o4"></td>
+                </tr>
+                <tr>
+                    <th>Write (2)</th>
+                    <td><input type="checkbox" name="u2" id="u2"></td>
+                    <td><input type="checkbox" name="g2" id="g2"></td>
+                    <td><input type="checkbox" name="o2" id="o2"></td>
+                </tr>
+                <tr>
+                    <th>Execute (1)</th>
+                    <td><input type="checkbox" name="u1" id="u1"></td>
+                    <td><input type="checkbox" name="g1" id="g1"></td>
+                    <td><input type="checkbox" name="o1" id="o1"></td>
+                </tr>
+            </tbody>
+        </table>
+        <div id="result">
+
+        </div>
+        <p id="hasil"></p>
+        <p id="hasil1"></p>
+        <p id="hasil2"></p>
+    </div>
+</body>
+<script src="./ip-num.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/ctr-ipaddr@0.0.7/lib/index.min.js"></script>
+
+</html>
