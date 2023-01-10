@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Kalkulator Fisika Dasar</title>
+    <script>
+        function Gaya(e) {
+            var a = document.getElementById("percepatan").value;
+            var m = document.getElementById("massa").value;
+            var Gaya = m*a ;
+            document.getElementById("hasil").innerHTML = Gaya + " Newtown";
+            e.preventDefault() 
+        }
+
+        // window.onload = function () {
+
+        //     document.getElementById("form-rumus").addEventListener("submit", Luas(event))
+        // }
+    </script>
+</head>
+
+<body>
+
+    <div class="judul">
+        <h1>Kalkulator Fisika</h1>
+    </div>
+    <div class="sub-judul">
+        <h3>Rumus Gaya</h3>
+    </div>
+    <div class="isi">
+        <img src="gaya.jpg" alt="" class="gambar">
+        <div>
+            <p>
+                <b>Gaya</b> 
+                <p>Gaya adalah interaksi apa pun yang dapat menyebabkan sebuah benda bermassa mengalami perubahan gerak, baik dalam bentuk arah, maupun konstruksi geometris.</p>
+                <P>Adapun rumus gaya adalah F = m x a, dengan keterangan sebagai berikut.</P>
+                <p>F adalah Gaya (Newton)</p>
+                <p>m adalah massa (kg)</p>
+                <p>a adalah percepatan (m/s).</p>
+                
+
+            </p>
+            <p><b>Rumus</b> Gaya </p>
+            <p>Gaya (F) = massa (m) x percepatan (a)</p>
+       
+        </div>
+    </div>
+    <div class="rumus">
+        <h3>Perhitungan</h3>
+        <p>Nilai massa </p>
+        <input type="text" id="massa" name="fname" placeholder="masukkan nilai  (ex: 4)"> kg<br/>
+        <p>Nilai percepatan </p>
+        <input type="text" id="percepatan" name="fname" placeholder="masukkan nilai  (ex: 4)"> m/s<br/>
+        <p></p>
+        <button onclick="Gaya()"> Hitung Gaya</button>
+
+        <p > Jadi nilai Gaya adalah </p> <p id="hasil"></p>
+    </div>
+</body>
+
+</html>
