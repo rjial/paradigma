@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Kalkulator Fisika Dasar</title>
+    <script>
+        function Tuas(e) {
+            var w = document.getElementById("berat").value;
+            var Lb = document.getElementById("lenganbeban").value;
+			var f = document.getElementById("gaya").value;
+			var Fk = document.getElementById("kuasa").value;
+            var awal = w*Lb ;
+			var rumus= f*Fk ;
+			var hasil = rumus / awal;
+            document.getElementById("hasil").innerHTML = hasil ;
+            e.preventDefault() 
+        }
+
+        // window.onload = function () {
+
+        //     document.getElementById("form-rumus").addEventListener("submit", Luas(event))
+        // }
+    </script>
+</head>
+
+<body>
+
+    <div class="judul">
+        <h1>Kalkulator Fisika</h1>
+    </div>
+    <div class="sub-judul">
+        <h3>Rumus Tuas ( Pengungkit)  </h3>
+    </div>
+    <div class="isi">
+        <img src="tuas.jpg" alt="" class="gambar">
+        <div>
+            <p>
+                <b>Tuas (Pengukit)</b> 
+                <p>Tuas adalah peralatan yang digunakan untuk memindahkan benda besar dan berat agar dapat meringankan pekerjaan manusia misalnya untuk mencabut, mengangkut, mengangkat benda. Diketahui juga penggunaan tuas ini merupakan yang paling tua dibandingankan dengan jenis pesawat sederhana lain.</p>
+				<p>W adalah berat beban (Newton)</p>
+				<p>Lb adalah lengan beban (meter)</p>
+				<p>F adalah gaya yang diberikan (Newton)</p>
+				<p>Lk adalah lengan kuasa</p>
+                
+
+            </p>
+            <p><b>Rumus</b> Pengukit </p>
+            <p>W X Lb = F X Fk</p>
+       
+        </div>
+    </div>
+    <div class="rumus">
+        <h3>Perhitungan</h3>
+        <p>Nilai W (Berat) </p>
+        <input type="text" id="berat" name="fname" placeholder="masukkan nilai  (ex: 4)"> Newton<br/>
+        <p>Nilai Lb(Lengan beban) </p>
+        <input type="text" id="lenganbeban" name="fname" placeholder="masukkan nilai  (ex: 4)"> meter<br/>
+		<p>Nilai F (Gaya) </p>
+        <input type="text" id="gaya" name="fname" placeholder="masukkan nilai  (ex: 4)"> Newton<br/>
+		<p>Nilai Lk (Lengan Kuasa) </p>
+        <input type="text" id="kuasa" name="fname" placeholder="masukkan nilai  (ex: 4)"><br/>
+        <p></p>
+        <button onclick="Tuas()"> Hitung Gaya</button>
+
+        <p > Jadi nilai Gaya adalah </p> <p id="hasil"></p>
+    </div>
+</body>
+
+</html>
